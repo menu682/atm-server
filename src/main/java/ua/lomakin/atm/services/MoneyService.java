@@ -1,6 +1,7 @@
 package ua.lomakin.atm.services;
 
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import ua.lomakin.atm.dto.MoneyDTO;
 import ua.lomakin.atm.dto.MoneyReqResDTO;
 import ua.lomakin.atm.entity.MoneyEntity;
@@ -11,6 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
+@Transactional
 public class MoneyService {
 
     MoneyRepo moneyRepo;
