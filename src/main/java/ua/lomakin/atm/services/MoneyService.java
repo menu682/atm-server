@@ -1,9 +1,10 @@
 package ua.lomakin.atm.services;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.lomakin.atm.dto.MoneyDTO;
 import ua.lomakin.atm.dto.MoneyReqResDTO;
+import ua.lomakin.atm.dto.MultipleResDTO;
 import ua.lomakin.atm.entity.MoneyEntity;
 import ua.lomakin.atm.repo.MoneyRepo;
 
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Component
+@Service
 @Transactional
 public class MoneyService {
 
@@ -24,6 +25,14 @@ public class MoneyService {
 
     public List<MoneyEntity> getAllMoneyFromDB(){
         return moneyRepo.findAll();
+    }
+
+
+    public MultipleResDTO getMultiple(){
+
+        MultipleResDTO multipleResDTO = new MultipleResDTO();
+        multipleResDTO.setMultiple(moneyRepo.getMultiple());
+        return multipleResDTO;
     }
 
 
