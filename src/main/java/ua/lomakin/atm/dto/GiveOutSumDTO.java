@@ -5,9 +5,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Data
-public class MoneyDTO {
+public class GiveOutSumDTO {
 
-    private Long id;
-    private int bill;
-    private int amount;
+    Integer sum;
+    Long cartNumber;
+    String cartPin;
+    String balance;
+
 }

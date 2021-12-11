@@ -5,14 +5,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Data
-public class MessageDTO {
+public class CashResDTO {
 
+    private MoneyDTO moneyDTO;
+    private Long cash;
     private String message;
 
-    public MessageDTO() {
-    }
-
-    public MessageDTO(String message) {
-        this.message = message;
-    }
 }

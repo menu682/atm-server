@@ -9,6 +9,7 @@ public class CartResDTO {
 
     private Long id;
     private Long cartNumber;
+    private String cartPin;
     private Long debitBalance;
     private Long creditBalance;
     private String message;

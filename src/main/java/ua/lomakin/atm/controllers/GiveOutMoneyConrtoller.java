@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ua.lomakin.atm.dto.CartReqDTO;
 import ua.lomakin.atm.dto.CartResDTO;
+import ua.lomakin.atm.dto.GiveOutSumDTO;
+import ua.lomakin.atm.dto.MoneyReqResDTO;
 import ua.lomakin.atm.dto.MultipleResDTO;
 import ua.lomakin.atm.services.CartService;
 import ua.lomakin.atm.services.MoneyService;
@@ -29,19 +31,24 @@ public class GiveOutMoneyConrtoller {
     }
 
     @PostMapping("/getallcarts")
-    public List<CartResDTO> getAllCarts(){
+    public List<CartResDTO> getAllCarts() {
         LOGGER.debug("Все карты получены");
         return cartService.getAllCarts();
     }
 
     @PostMapping("/getcart")
-    public CartResDTO getCart(@RequestBody CartReqDTO cartReqDTO){
+    public CartResDTO getCart(@RequestBody CartReqDTO cartReqDTO) {
         return cartService.getCart(cartReqDTO);
     }
 
     @PostMapping("/getmultiple")
-    public MultipleResDTO getMultiple(){
+    public MultipleResDTO getMultiple() {
         return moneyService.getMultiple();
+    }
+
+    @PostMapping("/givemoney")
+    public MoneyReqResDTO getMoney(@RequestBody GiveOutSumDTO giveOutSumDTO) {
+        return moneyService.getMoney(giveOutSumDTO);
     }
 
 

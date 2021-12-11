@@ -53,6 +53,7 @@ public class CartService {
 
             cartResDTO.setId(cartEntity.getId());
             cartResDTO.setCartNumber(cartEntity.getCartNumber());
+            cartResDTO.setCartPin(cartEntity.getCartPin());
             cartResDTO.setCreditBalance(cartEntity.getCreditBalance());
             cartResDTO.setDebitBalance(cartEntity.getDebitBalance());
             cartResDTO.setUserName(cartEntity.getUser().getName());
@@ -64,4 +65,22 @@ public class CartService {
             return cartResDTO;
         }
     }
+
+    public CartEntity getCartEntity(CartReqDTO cartReqDTO){
+
+        Optional<CartEntity> optionalCartEntity = cartRepo.findByCartNumber(cartReqDTO.getCartNumber());
+        try{
+            CartEntity cartEntity = optionalCartEntity.get();
+
+            if(!cartEntity.getCartPin().equals(cartReqDTO.getCartPin())){
+                throw new NoSuchElementException();
+            }
+
+            return cartEntity;
+
+        }catch (NoSuchElementException e){
+            throw new NoSuchElementException("Не верный пин код или такой карты не существует!");
+        }
+    }
+
 }
