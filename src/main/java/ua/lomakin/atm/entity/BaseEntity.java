@@ -9,7 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @MappedSuperclass
 @Data
@@ -21,10 +21,10 @@ public class BaseEntity {
 
     @CreationTimestamp
     @Column(name = "created")
-    private Date created;
+    private LocalDateTime created;
 
     @UpdateTimestamp
     @Column(name = "updated")
-    private Date update;
+    private LocalDateTime update;
 
 }
