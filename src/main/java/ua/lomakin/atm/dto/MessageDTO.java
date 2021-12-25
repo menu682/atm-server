@@ -1,10 +1,5 @@
 package ua.lomakin.atm.dto;
 
-import lombok.Data;
-import org.springframework.stereotype.Component;
-
-@Component
-@Data
 public class MessageDTO {
 
     private String message;
@@ -13,6 +8,14 @@ public class MessageDTO {
     }
 
     public MessageDTO(String message) {
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
         this.message = message;
     }
 }

@@ -1,14 +1,12 @@
 package ua.lomakin.atm.entity;
 
-import lombok.Data;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "money")
-@Data
 public class MoneyEntity extends BaseEntity {
 
     @Column(name = "bill", nullable = false)
@@ -17,4 +15,28 @@ public class MoneyEntity extends BaseEntity {
     @Column(name = "amount")
     private int amount;
 
+    public MoneyEntity() {
+    }
+
+    public MoneyEntity(Long id, LocalDateTime created, LocalDateTime update, int bill, int amount) {
+        super(id, created, update);
+        this.bill = bill;
+        this.amount = amount;
+    }
+
+    public int getBill() {
+        return bill;
+    }
+
+    public void setBill(int bill) {
+        this.bill = bill;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
 }

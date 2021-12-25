@@ -1,6 +1,5 @@
 package ua.lomakin.atm.entity;
 
-import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -12,7 +11,6 @@ import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
 @MappedSuperclass
-@Data
 public class BaseEntity {
 
     @Id
@@ -27,4 +25,24 @@ public class BaseEntity {
     @Column(name = "updated")
     private LocalDateTime update;
 
+    public BaseEntity() {
+    }
+
+    public BaseEntity(Long id, LocalDateTime created, LocalDateTime update) {
+        this.id = id;
+        this.created = created;
+        this.update = update;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public LocalDateTime getCreated() {
+        return created;
+    }
+
+    public LocalDateTime getUpdate() {
+        return update;
+    }
 }

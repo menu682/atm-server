@@ -7,7 +7,10 @@ import ua.lomakin.atm.dto.MessageDTO;
 @RestController("/")
 public class MainController {
 
-    MessageDTO messageDTO;
+    MessageDTO messageDTO = new MessageDTO();
+
+    public MainController() {
+    }
 
     public MainController(MessageDTO messageDTO) {
         this.messageDTO = messageDTO;

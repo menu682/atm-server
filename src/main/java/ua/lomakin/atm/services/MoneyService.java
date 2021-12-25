@@ -3,7 +3,6 @@ package ua.lomakin.atm.services;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.lomakin.atm.dto.CartReqDTO;
-import ua.lomakin.atm.dto.CartResDTO;
 import ua.lomakin.atm.dto.GiveOutSumDTO;
 import ua.lomakin.atm.dto.MoneyDTO;
 import ua.lomakin.atm.dto.MoneyReqResDTO;
@@ -16,7 +15,6 @@ import ua.lomakin.atm.repo.MoneyRepo;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
